@@ -21,7 +21,7 @@ export default function Hero() {
 
       <Bubbles count={16} />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 py-20 text-center sm:px-6 sm:py-28">
+      <div className="pointer-events-none relative mx-auto flex max-w-6xl flex-col items-center px-4 py-20 text-center sm:px-6 sm:py-28">
         <span className="font-display rounded-full border border-gold/60 px-4 py-1 text-sm tracking-widest text-gold">
           CLOVIS &amp; FRESNO, CA
         </span>
@@ -41,13 +41,13 @@ export default function Hero() {
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <a
             href="#hours-location"
-            className="font-display rounded-md bg-red px-8 py-3 text-lg tracking-wide text-cream shadow-lg transition hover:bg-red-dark"
+            className="font-display pointer-events-auto rounded-md bg-red px-8 py-3 text-lg tracking-wide text-cream shadow-lg transition hover:bg-red-dark"
           >
             Find Us
           </a>
           <a
             href="#contact"
-            className="font-display rounded-md border-2 border-cream px-8 py-3 text-lg tracking-wide text-cream transition hover:bg-cream hover:text-navy"
+            className="font-display pointer-events-auto rounded-md border-2 border-cream px-8 py-3 text-lg tracking-wide text-cream transition hover:bg-cream hover:text-navy"
           >
             Contact Us
           </a>

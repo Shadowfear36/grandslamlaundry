@@ -42,7 +42,7 @@ export default function Contact() {
     <section id="contact" className="relative overflow-hidden bg-navy py-20 text-cream">
       <Bubbles count={10} />
 
-      <div className="relative mx-auto max-w-2xl px-4 sm:px-6">
+      <div className="pointer-events-none relative mx-auto max-w-2xl px-4 sm:px-6">
         <div className="text-center">
           <span className="font-display tracking-widest text-gold">
             BULLPEN
@@ -56,7 +56,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-10 space-y-5">
+        <form onSubmit={handleSubmit} className="pointer-events-auto mt-10 space-y-5">
           <div>
             <label htmlFor="name" className="block text-sm font-medium">
               Name
