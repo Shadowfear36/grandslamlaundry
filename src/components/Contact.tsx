@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Bubbles from "@/components/Bubbles";
 
 // TODO: replace with a real Formspree endpoint (formspree.io) or a Cloudflare
 // Pages Function before launch. Sign up at formspree.io, create a form, and
@@ -38,8 +39,10 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-navy py-20 text-cream">
-      <div className="mx-auto max-w-2xl px-4 sm:px-6">
+    <section id="contact" className="relative overflow-hidden bg-navy py-20 text-cream">
+      <Bubbles count={10} />
+
+      <div className="relative mx-auto max-w-2xl px-4 sm:px-6">
         <div className="text-center">
           <span className="font-display tracking-widest text-gold">
             BULLPEN

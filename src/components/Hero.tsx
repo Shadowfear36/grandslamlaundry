@@ -1,3 +1,5 @@
+import Bubbles from "@/components/Bubbles";
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-navy text-cream">
@@ -16,6 +18,8 @@ export default function Hero() {
         }}
         aria-hidden
       />
+
+      <Bubbles count={16} />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 py-20 text-center sm:px-6 sm:py-28">
         <span className="font-display rounded-full border border-gold/60 px-4 py-1 text-sm tracking-widest text-gold">
