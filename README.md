@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grand Slam Laundry
 
-## Getting Started
+Baseball-themed marketing site for Grand Slam Laundry, a coin laundromat in
+Clovis/Fresno, CA. Built with Next.js (App Router) + Tailwind CSS, exported
+as static HTML for Cloudflare Pages.
 
-First, run the development server:
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This produces a static export in `out/` (configured via `output: "export"`
+in `next.config.ts`) — no server runtime required.
 
-## Learn More
+## Deploying to Cloudflare Pages
 
-To learn more about Next.js, take a look at the following resources:
+1. Push this repo to GitHub.
+2. In the Cloudflare dashboard: Workers & Pages → Create → Pages → Connect to
+   GitHub → select this repo.
+3. Build settings:
+   - Framework preset: `Next.js (Static HTML Export)`
+   - Build command: `npm run build`
+   - Build output directory: `out`
+4. Deploy. Every push to `main` will auto-deploy; PRs get preview URLs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Before launch
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Contact form**: `src/components/Contact.tsx` posts to a placeholder
+  Formspree endpoint (`FORM_ENDPOINT`). Sign up at
+  [formspree.io](https://formspree.io), create a form, and replace the URL.
+- **Real address/phone/hours**: placeholder values live in
+  `src/components/Footer.tsx` and `src/components/HoursLocation.tsx`
+  (123 Home Plate Ave, Clovis, CA / (559) 555-0123). The map embed in
+  `HoursLocation.tsx` also needs the real address once known.
+- **Photos**: `src/components/Gallery.tsx` currently shows labeled
+  placeholder tiles — swap in real photos of the storefront/machines.
+- **Logo/branding**: currently using a baseball emoji as the mark; swap for
+  a real logo if your buddy has one designed.
