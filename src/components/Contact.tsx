@@ -51,8 +51,7 @@ export default function Contact() {
             Contact Us
           </h2>
           <p className="mx-auto mt-3 max-w-md text-cream/70">
-            Questions, feedback, or want to talk drop-off service? Send us a
-            message.
+            Questions or feedback? Send us a message.
           </p>
         </div>
 

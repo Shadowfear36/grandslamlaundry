@@ -34,8 +34,8 @@ export default function Hero() {
 
         <p className="mt-6 max-w-xl text-lg text-cream/85">
           Grand Slam Laundry is the Valley&apos;s baseball-themed laundromat —
-          self-serve machines, drop-off wash &amp; fold, and big-load
-          machines for the whole team&apos;s uniforms.
+          self-serve wash &amp; dry with big-load machines for the whole
+          team&apos;s uniforms.
         </p>
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">

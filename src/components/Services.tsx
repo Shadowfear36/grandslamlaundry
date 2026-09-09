@@ -6,22 +6,28 @@ const services = [
       "Step up to our lineup of top-load and front-load washers, plus high-capacity dryers. Pay-per-use, no membership required.",
   },
   {
-    icon: "🎽",
-    title: "Drop-Off Wash & Fold",
-    description:
-      "Drop your uniform bag off in the morning, pick up a perfectly folded win in the evening. We wash, dry, and fold — you just show up.",
-  },
-  {
     icon: "🏟️",
     title: "Home Run Machines",
     description:
       "Our extra-large capacity machines handle comforters, sleeping bags, and team gear in a single load — no extra innings needed.",
   },
   {
-    icon: "💳",
-    title: "Card & App Pay",
+    icon: "🪙",
+    title: "Quarters or PayRange",
     description:
-      "Skip the coin roll. Load up a laundry card or pay right from your phone with our contactless payment system.",
+      "Pay the classic way with quarters, or skip the coin roll and pay right from your phone with the PayRange app.",
+  },
+  {
+    icon: "🥤",
+    title: "Vending Machines",
+    description:
+      "Snacks, drinks, and laundry supplies like detergent and dryer sheets — all on site if you forget something.",
+  },
+  {
+    icon: "📺",
+    title: "Free Wi-Fi & TV",
+    description:
+      "Settle in while your load runs — free Wi-Fi and a TV in the lobby make the wait easy.",
   },
 ];
 
@@ -37,7 +43,7 @@ export default function Services() {
         </h2>
       </div>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
           <div
             key={service.title}

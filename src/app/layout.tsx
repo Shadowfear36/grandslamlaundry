@@ -16,10 +16,33 @@ const bebas = Bebas_Neue({
   subsets: ["latin"],
 });
 
+// TODO: swap this for the real production URL once the Cloudflare Pages
+// domain (or a custom domain) is set, so social share links resolve
+// og-image.png correctly.
+const siteUrl = "https://grandslamlaundry.pages.dev";
+const title = "Grand Slam Laundry | Coin Laundry in Clovis/Fresno, CA";
+const description =
+  "Grand Slam Laundry is a baseball-themed coin laundromat serving Clovis and Fresno, CA. Self-serve wash & dry with big machines for bulky loads. Pay with quarters or the PayRange app.";
+
 export const metadata: Metadata = {
-  title: "Grand Slam Laundry | Coin Laundry in Clovis/Fresno, CA",
-  description:
-    "Grand Slam Laundry is a baseball-themed coin laundromat serving Clovis and Fresno, CA. Self-serve wash & dry, drop-off wash-and-fold, and big machines for bulky loads.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "Grand Slam Laundry",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
