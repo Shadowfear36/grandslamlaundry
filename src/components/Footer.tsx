@@ -9,12 +9,12 @@ export default function Footer() {
           <Image
             src="/logo.webp"
             alt="Grand Slam Laundry"
-            width={495}
+            width={515}
             height={444}
             className="h-16 w-auto"
           />
           <p className="mt-3 text-sm">
-            Clovis &amp; Fresno&apos;s home run for clean clothes.
+            Fresno&apos;s home run for clean clothes.
           </p>
         </div>
 

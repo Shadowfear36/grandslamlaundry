@@ -90,7 +90,7 @@ export default function SplashScreen() {
         <Image
           src="/logo.webp"
           alt="Grand Slam Laundry"
-          width={495}
+          width={515}
           height={444}
           priority
           className="splash-logo-in w-56 sm:w-72"

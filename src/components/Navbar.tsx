@@ -22,7 +22,7 @@ export default function Navbar() {
           <Image
             src="/logo.webp"
             alt="Grand Slam Laundry"
-            width={495}
+            width={515}
             height={444}
             priority
             className="h-12 w-auto sm:h-14"

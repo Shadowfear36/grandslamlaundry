@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="pointer-events-none relative mx-auto flex max-w-6xl flex-col items-center px-4 py-20 text-center sm:px-6 sm:py-28">
         <span className="font-display rounded-full border border-gold/60 px-4 py-1 text-sm tracking-widest text-gold">
-          CLOVIS &amp; FRESNO, CA
+          FRESNO, CA
         </span>
 
         <h1 className="font-display mt-6 text-5xl leading-none tracking-wide sm:text-7xl">

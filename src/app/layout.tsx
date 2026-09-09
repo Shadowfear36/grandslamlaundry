@@ -20,9 +20,9 @@ const bebas = Bebas_Neue({
 // domain (or a custom domain) is set, so social share links resolve
 // og-image.png correctly.
 const siteUrl = "https://grandslamlaundry.pages.dev";
-const title = "Grand Slam Laundry | Coin Laundry in Clovis/Fresno, CA";
+const title = "Grand Slam Laundry | Coin Laundry in Fresno, CA";
 const description =
-  "Grand Slam Laundry is a baseball-themed coin laundromat serving Clovis and Fresno, CA. Self-serve wash & dry with big machines for bulky loads. Pay with quarters or the PayRange app.";
+  "Grand Slam Laundry is a baseball-themed coin laundromat in Fresno, CA. Self-serve wash & dry with big machines for bulky loads. Pay with quarters or the PayRange app.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

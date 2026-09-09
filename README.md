@@ -1,8 +1,8 @@
 # Grand Slam Laundry
 
 Baseball-themed marketing site for Grand Slam Laundry, a coin laundromat in
-Clovis/Fresno, CA. Built with Next.js (App Router) + Tailwind CSS, exported
-as static HTML for Cloudflare Pages.
+Fresno, CA. Built with Next.js (App Router) + Tailwind CSS, exported as
+static HTML for Cloudflare Pages.
 
 ## Development
 
@@ -36,11 +36,7 @@ in `next.config.ts`) — no server runtime required.
 - **Contact form**: `src/components/Contact.tsx` posts to a placeholder
   Formspree endpoint (`FORM_ENDPOINT`). Sign up at
   [formspree.io](https://formspree.io), create a form, and replace the URL.
-- **Real address/phone/hours**: placeholder values live in
-  `src/components/Footer.tsx` and `src/components/HoursLocation.tsx`
-  (123 Home Plate Ave, Clovis, CA / (559) 555-0123). The map embed in
-  `HoursLocation.tsx` also needs the real address once known.
-- **Photos**: `src/components/Gallery.tsx` currently shows labeled
-  placeholder tiles — swap in real photos of the storefront/machines.
-- **Logo/branding**: currently using a baseball emoji as the mark; swap for
-  a real logo if your buddy has one designed.
+- **Site URL**: `src/app/layout.tsx` sets `metadataBase` to a placeholder
+  `https://grandslamlaundry.pages.dev`. Update it to the real Cloudflare
+  Pages domain (or custom domain) once known, so Open Graph / Twitter share
+  links resolve `og-image.png` correctly.
