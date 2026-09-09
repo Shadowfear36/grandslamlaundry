@@ -1,5 +1,5 @@
 const hours = [
-  { day: "Monday – Sunday", time: "6:00 AM – 10:00 PM" },
+  { day: "Monday – Sunday", time: "7:00 AM – 10:00 PM" },
 ];
 
 export default function HoursLocation() {
@@ -28,26 +28,26 @@ export default function HoursLocation() {
             ))}
           </ul>
           <p className="mt-4 text-sm text-navy/60">
-            Last wash cycle starts at 9:00 PM daily.
+            Last wash starts at 8:30 PM daily.
           </p>
 
           <h3 className="font-display mt-8 text-2xl tracking-wide text-navy">
             Location
           </h3>
-          <p className="mt-2 text-navy/80">123 Home Plate Ave</p>
-          <p className="text-navy/80">Clovis, CA 93611</p>
+          <p className="mt-2 text-navy/80">1760 N First St</p>
+          <p className="text-navy/80">Fresno, CA</p>
           <a
-            href="tel:+15595550123"
+            href="tel:+15592289847"
             className="mt-2 inline-block text-red hover:text-red-dark"
           >
-            (559) 555-0123
+            (559) 228-9847
           </a>
         </div>
 
         <div className="overflow-hidden rounded-lg border border-navy/10 shadow-sm">
           <iframe
             title="Grand Slam Laundry Location Map"
-            src="https://www.google.com/maps?q=Clovis,+CA&output=embed"
+            src="https://www.google.com/maps?q=1760+N+First+St,+Fresno,+CA&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0, minHeight: 320 }}

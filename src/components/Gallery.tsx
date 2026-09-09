@@ -1,10 +1,12 @@
-const placeholders = [
-  "Storefront",
-  "Washer Lineup",
-  "Folding Station",
-  "Big Load Machines",
-  "Waiting Area",
-  "Team Gear Bins",
+import Image from "next/image";
+
+const photos = [
+  { src: "/gallery/storefront.webp", alt: "Grand Slam Laundry storefront at Mayfair Center" },
+  { src: "/gallery/logo-and-washers.webp", alt: "Grand Slam Laundry logo above a stack of dryers" },
+  { src: "/gallery/washer-row.webp", alt: "Row of coin-op washers with baseball stitching wall decal" },
+  { src: "/gallery/folding-station.webp", alt: "Folding counter and house rules signage" },
+  { src: "/gallery/carts-and-machines.webp", alt: "Laundry carts and large-capacity machines" },
+  { src: "/gallery/full-room.webp", alt: "Full view of the washer and dryer lineup" },
 ];
 
 export default function Gallery() {
@@ -19,23 +21,23 @@ export default function Gallery() {
             Gallery
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-navy/60">
-            Real photos coming soon — here&apos;s the lineup we&apos;ll be
-            filling in.
+            A look inside our Mayfair Center location.
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {placeholders.map((label) => (
+          {photos.map((photo) => (
             <div
-              key={label}
-              className="flex aspect-square flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-navy/20 bg-white text-navy/40"
+              key={photo.src}
+              className="relative aspect-square overflow-hidden rounded-lg border border-navy/10 bg-white shadow-sm"
             >
-              <span className="text-3xl" aria-hidden>
-                📷
-              </span>
-              <span className="font-display text-sm tracking-wide">
-                {label}
-              </span>
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 640px) 50vw, 33vw"
+                className="object-cover"
+              />
             </div>
           ))}
         </div>

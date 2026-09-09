@@ -2,6 +2,12 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-navy text-cream">
       <div
+        className="absolute inset-0 bg-cover bg-top opacity-30"
+        style={{ backgroundImage: "url(/gallery/logo-and-washers.webp)" }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/70" aria-hidden />
+      <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
           backgroundImage:

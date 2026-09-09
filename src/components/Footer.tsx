@@ -21,18 +21,18 @@ export default function Footer() {
           <h3 className="font-display text-lg tracking-wide text-gold">
             Hours
           </h3>
-          <p className="mt-2 text-sm">Every day: 6:00 AM – 10:00 PM</p>
-          <p className="text-sm">Last wash cycle starts at 9:00 PM</p>
+          <p className="mt-2 text-sm">Monday – Sunday: 7:00 AM – 10:00 PM</p>
+          <p className="text-sm">Last wash starts at 8:30 PM</p>
         </div>
 
         <div>
           <h3 className="font-display text-lg tracking-wide text-gold">
             Find Us
           </h3>
-          <p className="mt-2 text-sm">123 Home Plate Ave</p>
-          <p className="text-sm">Clovis, CA 93611</p>
-          <a href="tel:+15595550123" className="mt-2 block text-sm hover:text-gold">
-            (559) 555-0123
+          <p className="mt-2 text-sm">1760 N First St</p>
+          <p className="text-sm">Fresno, CA</p>
+          <a href="tel:+15592289847" className="mt-2 block text-sm hover:text-gold">
+            (559) 228-9847
           </a>
         </div>
       </div>
