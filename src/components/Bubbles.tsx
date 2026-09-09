@@ -15,6 +15,7 @@ const BUOYANCY = 22; // px/s^2 gentle upward pull
 const JITTER = 55; // px/s^2 random wander, keeps motion organic
 const MAX_SPEED = 95; // px/s
 const WALL_DAMPING = 0.75;
+const RESPAWN_DELAY = 220; // ms
 
 function randomSize() {
   return Math.random() * 34 + 18;
@@ -22,10 +23,11 @@ function randomSize() {
 
 function spawnBubble(width: number, height: number): PhysBubble {
   const size = randomSize();
+  const r = size / 2;
   return {
     size,
-    x: Math.random() * Math.max(width - size, 1) + size / 2,
-    y: height + size, // wells up from below, like foam
+    x: Math.random() * Math.max(width - size, 1) + r,
+    y: Math.max(height - r - Math.random() * 12, r), // starts right at the floor, like foam
     vx: (Math.random() - 0.5) * 40,
     vy: -(Math.random() * 30 + 20),
     popped: false,
@@ -132,17 +134,22 @@ export default function Bubbles({ count = 14 }: { count?: number }) {
         b.y += b.vy * dt;
 
         const r = b.size / 2;
-        if (b.x < r) {
+
+        if (b.y <= r) {
+          b.y = r;
+          popBubble(i);
+          return;
+        }
+
+        if (b.x <= r) {
           b.x = r;
           b.vx = Math.abs(b.vx) * WALL_DAMPING;
-        } else if (b.x > rect.width - r) {
+        } else if (b.x >= rect.width - r) {
           b.x = rect.width - r;
           b.vx = -Math.abs(b.vx) * WALL_DAMPING;
         }
-        if (b.y < r) {
-          b.y = r;
-          b.vy = Math.abs(b.vy) * WALL_DAMPING;
-        } else if (b.y > rect.height - r) {
+
+        if (b.y >= rect.height - r) {
           b.y = rect.height - r;
           b.vy = -Math.abs(b.vy) * WALL_DAMPING;
         }
@@ -161,7 +168,7 @@ export default function Bubbles({ count = 14 }: { count?: number }) {
     };
   }, [count]);
 
-  function handlePop(index: number) {
+  function popBubble(index: number) {
     const b = physicsRef.current[index];
     const el = elsRef.current[index];
     if (!b || !el || b.popped) return;
@@ -183,7 +190,7 @@ export default function Bubbles({ count = 14 }: { count?: number }) {
         target.style.pointerEvents = "";
         applyStyle(target, fresh);
       }
-    }, 280);
+    }, RESPAWN_DELAY);
     timeoutsRef.current.push(timeoutId);
   }
 
@@ -201,7 +208,7 @@ export default function Bubbles({ count = 14 }: { count?: number }) {
           ref={(el) => {
             elsRef.current[i] = el;
           }}
-          onClick={() => handlePop(i)}
+          onClick={() => popBubble(i)}
           className="pointer-events-auto absolute left-0 top-0 cursor-pointer rounded-full border border-white/40 transition-opacity duration-200"
           style={{
             background:

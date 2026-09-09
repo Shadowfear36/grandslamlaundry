@@ -1,18 +1,19 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-navy text-cream/80">
       <div className="stitch-divider" />
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-3">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="text-xl" aria-hidden>
-              ⚾
-            </span>
-            <span className="font-display text-xl tracking-wide text-cream">
-              Grand Slam Laundry
-            </span>
-          </div>
-          <p className="mt-2 text-sm">
+          <Image
+            src="/logo.webp"
+            alt="Grand Slam Laundry"
+            width={495}
+            height={444}
+            className="h-16 w-auto"
+          />
+          <p className="mt-3 text-sm">
             Clovis &amp; Fresno&apos;s home run for clean clothes.
           </p>
         </div>

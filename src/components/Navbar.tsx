@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const links = [
@@ -18,12 +19,14 @@ export default function Navbar() {
       <div className="stitch-divider" />
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl" aria-hidden>
-            ⚾
-          </span>
-          <span className="font-display text-2xl tracking-wide sm:text-3xl">
-            Grand Slam Laundry
-          </span>
+          <Image
+            src="/logo.webp"
+            alt="Grand Slam Laundry"
+            width={495}
+            height={444}
+            priority
+            className="h-12 w-auto sm:h-14"
+          />
         </Link>
 
         <nav className="hidden gap-8 md:flex">
