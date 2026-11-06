@@ -29,13 +29,33 @@ in `next.config.ts`) — no server runtime required.
    - Framework preset: `Next.js (Static HTML Export)`
    - Build command: `npm run build`
    - Build output directory: `out`
-4. Deploy. Every push to `main` will auto-deploy; PRs get preview URLs.
+4. Settings → Variables and Secrets (add as **Secret** type, for Production
+   and Preview):
+   - `APPS_SCRIPT_URL` — the Apps Script web app's `/exec` URL
+   - `APPS_SCRIPT_SECRET` — long random string; must match the script's
+     `SHARED_SECRET` Script Property
+   - `TURNSTILE_SECRET_KEY` — from the Turnstile widget
+5. Deploy. Every push to `main` will auto-deploy; PRs get preview URLs.
 
 ## Before launch
 
-- **Contact form**: `src/components/Contact.tsx` posts to a placeholder
-  Formspree endpoint (`FORM_ENDPOINT`). Sign up at
-  [formspree.io](https://formspree.io), create a form, and replace the URL.
+- **Contact form**: the form posts to `/api/contact`
+  (`functions/api/contact.ts`, a Cloudflare Pages Function), which verifies a
+  Cloudflare Turnstile token and forwards the message to a Google Apps Script
+  web app (`apps-script/Code.gs`) on the client's Google account. The script
+  only accepts requests carrying the shared secret and emails via `MailApp`.
+  Set up:
+  1. Turnstile → Add widget for the site's domain(s); its **site key** goes in
+     `TURNSTILE_SITE_KEY` in `src/components/Contact.tsx` (done).
+  2. Paste `apps-script/Code.gs` into a new project at script.google.com,
+     set `TO`, add Script Property `SHARED_SECRET`, and deploy as a Web app
+     (Execute as: Me, Access: Anyone).
+  3. Add the three Pages variables above and redeploy.
+
+  Local testing: `npm run build && npx wrangler pages dev out` with the
+  variables in `.dev.vars`. Turnstile's test keys report hostname
+  `example.com`, so the hostname check rejects them locally; real sends are
+  best tested on a Pages preview deployment.
 - **Site URL**: `src/app/layout.tsx` sets `metadataBase` to a placeholder
   `https://grandslamlaundry.pages.dev`. Update it to the real Cloudflare
   Pages domain (or custom domain) once known, so Open Graph / Twitter share
