@@ -30,6 +30,13 @@ export async function onRequestPost({
   request: Request;
   env: Env;
 }): Promise<Response> {
+  const missing = (["APPS_SCRIPT_URL", "APPS_SCRIPT_SECRET", "TURNSTILE_SECRET_KEY"] as const)
+    .filter((key) => !env[key]);
+  if (missing.length) {
+    console.error("contact: missing env vars", missing);
+    return reply(500, "misconfigured");
+  }
+
   let form: FormData;
   try {
     form = await request.formData();
@@ -62,20 +69,35 @@ export async function onRequestPost({
     return reply(403, "captcha");
   }
 
-  const res = await fetch(env.APPS_SCRIPT_URL, {
-    method: "POST",
-    body: new URLSearchParams({
-      secret: env.APPS_SCRIPT_SECRET,
-      name: String(form.get("name") ?? ""),
-      email: String(form.get("email") ?? ""),
-      message: String(form.get("message") ?? ""),
-    }),
-  });
-  const result = (await res.json().catch(() => null)) as
-    | { ok: boolean; error?: string }
-    | null;
+  let res: Response;
+  let body: string;
+  try {
+    res = await fetch(env.APPS_SCRIPT_URL, {
+      method: "POST",
+      body: new URLSearchParams({
+        secret: env.APPS_SCRIPT_SECRET,
+        name: String(form.get("name") ?? ""),
+        email: String(form.get("email") ?? ""),
+        message: String(form.get("message") ?? ""),
+      }),
+    });
+    body = await res.text();
+  } catch (err) {
+    console.error("contact: Apps Script request failed", err);
+    return reply(500, "send_failed");
+  }
 
-  if (!result?.ok) return reply(502, result?.error ?? "send_failed");
+  let result: { ok: boolean; error?: string } | null = null;
+  try {
+    result = JSON.parse(body);
+  } catch {}
+
+  // 500 rather than 502: Cloudflare swaps 502 responses for its own error
+  // page, which hides the error code from the browser.
+  if (!result?.ok) {
+    console.error("contact: Apps Script rejected", res.status, body.slice(0, 500));
+    return reply(500, result?.error ?? "send_failed");
+  }
   return reply(200);
 }
 
