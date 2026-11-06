@@ -56,7 +56,3 @@ in `next.config.ts`) — no server runtime required.
   variables in `.dev.vars`. Turnstile's test keys report hostname
   `example.com`, so the hostname check rejects them locally; real sends are
   best tested on a Pages preview deployment.
-- **Site URL**: `src/app/layout.tsx` sets `metadataBase` to a placeholder
-  `https://grandslamlaundry.pages.dev`. Update it to the real Cloudflare
-  Pages domain (or custom domain) once known, so Open Graph / Twitter share
-  links resolve `og-image.png` correctly.

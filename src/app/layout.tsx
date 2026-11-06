@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,10 +17,8 @@ const bebas = Bebas_Neue({
   subsets: ["latin"],
 });
 
-// TODO: swap this for the real production URL once the Cloudflare Pages
-// domain (or a custom domain) is set, so social share links resolve
-// og-image.png correctly.
-const siteUrl = "https://grandslamlaundry.pages.dev";
+// Production domain; social share links resolve og-image.png against it.
+const siteUrl = "https://grandslamlaundry.com";
 const title = "Grand Slam Laundry | Coin Laundry in Fresno, CA";
 const description =
   "Grand Slam Laundry is a baseball-themed coin laundromat in Fresno, CA. Self-serve wash & dry with big machines for bulky loads. Pay with quarters or the PayRange app.";
@@ -51,6 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${bebas.variable} h-full antialiased`}
     >
+      <GoogleTagManager gtmId="GTM-MW8D3XVX" />
       <body className="min-h-full flex flex-col bg-cream text-navy">
         <SplashScreen />
         <Navbar />
