@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import InstagramIcon, { INSTAGRAM_URL } from "@/components/InstagramIcon";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -29,29 +30,41 @@ export default function Navbar() {
           />
         </Link>
 
-        <nav className="hidden gap-8 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-display text-lg tracking-wide text-cream/90 transition hover:text-gold"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="flex items-center gap-6 md:gap-8">
+          <nav className="hidden gap-8 md:flex">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="font-display text-lg tracking-wide text-cream/90 transition hover:text-gold"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        <button
-          type="button"
-          className="flex flex-col gap-1.5 md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="h-0.5 w-6 bg-cream" />
-          <span className="h-0.5 w-6 bg-cream" />
-          <span className="h-0.5 w-6 bg-cream" />
-        </button>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Grand Slam Laundry on Instagram"
+            className="text-cream/90 transition hover:text-gold"
+          >
+            <InstagramIcon className="h-6 w-6" />
+          </a>
+
+          <button
+            type="button"
+            className="flex flex-col gap-1.5 md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="h-0.5 w-6 bg-cream" />
+            <span className="h-0.5 w-6 bg-cream" />
+            <span className="h-0.5 w-6 bg-cream" />
+          </button>
+        </div>
       </div>
 
       {open && (
