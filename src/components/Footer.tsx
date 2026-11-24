@@ -35,6 +35,28 @@ export default function Footer() {
           <a href="tel:+15592289847" className="mt-2 block text-sm hover:text-gold">
             (559) 228-9847
           </a>
+          <a
+            href="https://www.instagram.com/grandslamlaundrymayfaircenter"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 text-sm hover:text-gold"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+              aria-hidden="true"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+            </svg>
+            @grandslamlaundrymayfaircenter
+          </a>
         </div>
       </div>
 
